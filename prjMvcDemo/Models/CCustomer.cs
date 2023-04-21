@@ -13,7 +13,5 @@ namespace prjMvcDemo.Models
         public string fEmail { get; set; }
         public string fAddress { get; set; }
         public string fPassword { get; set; }
-
-
     }
 }
