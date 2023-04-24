@@ -13,10 +13,10 @@ namespace prjMvcDemo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbDemoEntities2 : DbContext
+    public partial class dbDemoEntities : DbContext
     {
-        public dbDemoEntities2()
-            : base("name=dbDemoEntities2")
+        public dbDemoEntities()
+            : base("name=dbDemoEntities")
         {
         }
     
@@ -26,5 +26,6 @@ namespace prjMvcDemo
         }
     
         public virtual DbSet<tProduct> tProduct { get; set; }
+        public virtual DbSet<tShoppingCart> tShoppingCart { get; set; }
     }
 }

@@ -4,21 +4,15 @@
     ViewBag.Title = "List";
 }
 
-<h2>產品資料一覽表</h2>
-<p>
-    @using (Html.BeginForm())
-    {
-        @:關鍵字 @Html.TextBox("txtKeyword") <input type="submit" value="查詢" />
-    }
-</p>
+<h2>購物車</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create")
+    @Html.ActionLink("檢視購物車", "CartView")
 </p>
 <table class="table">
     <tr>
         <th>
-           序
+         序號
         </th>
         <th>
             @Html.DisplayNameFor(model => model.fName)
@@ -27,18 +21,18 @@
             @Html.DisplayNameFor(model => model.fQty)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fCost)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.fPrice)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@{int count = 0;
+    foreach (var item in Model)
+    {
+        count++;
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.fId)
+            @count
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.fName)
@@ -47,16 +41,13 @@
             @Html.DisplayFor(modelItem => item.fQty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fCost)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.fPrice)
         </td>
         <td>
-            @Html.ActionLink("修改", "Edit", new {  id=item.fId },null) |
-            @Html.ActionLink("刪除", "Delete", new {  id=item.fId }, new { onclick = "return confirm ('確定要刪除嗎？')" })
+            @Html.ActionLink("加入購物車", "AddToCart", new { id = item.fId })
+            @Html.ActionLink("加入Session", "AddToSession", new { id = item.fId })
         </td>
     </tr>
-}
-
+          }
+    }
 </table>

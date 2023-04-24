@@ -11,6 +11,40 @@ namespace prjMvcDemo.Controllers
 {
     public class AController : Controller
     {
+        static int count = 0;
+
+        public ActionResult showCountByCookie()
+        {
+            int count = 0;
+            HttpCookie x= Request.Cookies["COUNT"];
+            if (x != null)
+                count = Convert.ToInt32(x.Value);
+            count++;
+            x = new HttpCookie("COUNT");
+            x.Value = count.ToString();
+            x.Expires = DateTime.Now.AddSeconds(20);
+            Response.Cookies.Add(x);
+
+            ViewBag.COUNT = count;
+            return View();
+        }
+
+        public ActionResult showCountBySession()
+        {
+            int count = 0;
+            if (Session["COUNT"] != null)
+                count = (int)Session["COUNT"];
+            count++;
+            Session["COUNT"] = count;
+            ViewBag.COUNT = count;
+            return View();
+        }
+        public ActionResult showCount()
+        {
+            count++;
+            ViewBag.COUNT = count;
+            return View();
+        }
         public string sayHello()
         {
             return "Hello ASP.NET MVC";

@@ -24,32 +24,32 @@ namespace prjMvcDemo
     /// <summary>
     /// 沒有可用的中繼資料文件。
     /// </summary>
-    public partial class dbDemo2Container : ObjectContext
+    public partial class dbDemoContainer : ObjectContext
     {
         #region 建構函式
     
         /// <summary>
-        /// 使用在應用程式組態檔的 'dbDemo2Container' 區段中找到的連接字串，初始化新的 dbDemo2Container 物件。
+        /// 使用在應用程式組態檔的 'dbDemoContainer' 區段中找到的連接字串，初始化新的 dbDemoContainer 物件。
         /// </summary>
-        public dbDemo2Container() : base("name=dbDemo2Container", "dbDemo2Container")
+        public dbDemoContainer() : base("name=dbDemoContainer", "dbDemoContainer")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// 初始化新的 dbDemo2Container 物件。
+        /// 初始化新的 dbDemoContainer 物件。
         /// </summary>
-        public dbDemo2Container(string connectionString) : base(connectionString, "dbDemo2Container")
+        public dbDemoContainer(string connectionString) : base(connectionString, "dbDemoContainer")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// 初始化新的 dbDemo2Container 物件。
+        /// 初始化新的 dbDemoContainer 物件。
         /// </summary>
-        public dbDemo2Container(EntityConnection connection) : base(connection, "dbDemo2Container")
+        public dbDemoContainer(EntityConnection connection) : base(connection, "dbDemoContainer")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

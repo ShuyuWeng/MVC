@@ -11,13 +11,27 @@ namespace prjMvcDemo
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tProduct
     {
         public int fId { get; set; }
+
+        [Required(ErrorMessage = "產品名稱是必填欄位")]
+        [DisplayName("產品名稱")]
         public string fName { get; set; }
+
+        [Required(ErrorMessage = "進貨數量是必填欄位")]
+        [DisplayName("進貨數量")]
         public Nullable<int> fQty { get; set; }
+
+        [Required(ErrorMessage = "進貨價格是必填欄位")]
+        [DisplayName("進貨價格")]
         public Nullable<decimal> fCost { get; set; }
+
+        [Required(ErrorMessage = "銷售價格是必填欄位")]
+        [DisplayName("銷售價格")]
         public Nullable<decimal> fPrice { get; set; }
     }
 }
