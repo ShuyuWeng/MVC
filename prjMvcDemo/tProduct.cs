@@ -13,6 +13,7 @@ namespace prjMvcDemo
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class tProduct
     {
@@ -33,5 +34,7 @@ namespace prjMvcDemo
         [Required(ErrorMessage = "銷售價格是必填欄位")]
         [DisplayName("銷售價格")]
         public Nullable<decimal> fPrice { get; set; }
+        public string fImagePath { get; set; }
+        public HttpPostedFileBase photo { get; set; }
     }
 }

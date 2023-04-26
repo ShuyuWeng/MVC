@@ -14,5 +14,6 @@ namespace prjMvcDemo.Models
         public decimal 小計 { get { return this.count * this.price; } }
 
         public tProduct product { get; set; }
+
     }
 }
